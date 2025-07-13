@@ -76,10 +76,14 @@ const getStatusColor = (status: string) => {
   }
 };
 
-export default function ConnectPage() {
+interface ConnectPageProps {
+  onLogout?: () => void;
+}
+
+export default function ConnectPage({ onLogout }: ConnectPageProps) {
   return (
-    <UnionLayout activeTab="connect">
-      <UnionHeader title="Connect" />
+    <UnionLayout activeTab="connect" onLogout={onLogout}>
+      <UnionHeader title="Connect" onLogout={onLogout} />
       
       <div className="p-4 space-y-6">
         {/* Search */}

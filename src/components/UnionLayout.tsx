@@ -4,9 +4,10 @@ import { BottomNavigation } from "./navigation/BottomNavigation";
 interface UnionLayoutProps {
   children: ReactNode;
   activeTab?: string;
+  onLogout?: () => void;
 }
 
-export const UnionLayout = ({ children, activeTab }: UnionLayoutProps) => {
+export const UnionLayout = ({ children, activeTab, onLogout }: UnionLayoutProps) => {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Main Content */}

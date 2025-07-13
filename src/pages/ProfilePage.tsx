@@ -37,10 +37,14 @@ const membershipStats = [
   { label: "Member Level", value: "Senior", icon: Shield }
 ];
 
-export default function ProfilePage() {
+interface ProfilePageProps {
+  onLogout?: () => void;
+}
+
+export default function ProfilePage({ onLogout }: ProfilePageProps) {
   return (
-    <UnionLayout activeTab="profile">
-      <UnionHeader title="My Profile" />
+    <UnionLayout activeTab="profile" onLogout={onLogout}>
+      <UnionHeader title="My Profile" onLogout={onLogout} />
       
       <div className="p-4 space-y-6">
         {/* Profile Header */}
@@ -181,7 +185,7 @@ export default function ProfilePage() {
         </Card>
 
         {/* Logout */}
-        <Button variant="destructive" className="w-full" size="lg">
+        <Button variant="destructive" className="w-full" size="lg" onClick={onLogout}>
           <LogOut size={16} className="mr-3" />
           Sign Out
         </Button>

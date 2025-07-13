@@ -66,10 +66,14 @@ const getPriorityColor = (priority: string) => {
   }
 };
 
-export default function AnnouncementsPage() {
+interface AnnouncementsPageProps {
+  onLogout?: () => void;
+}
+
+export default function AnnouncementsPage({ onLogout }: AnnouncementsPageProps) {
   return (
-    <UnionLayout activeTab="announcements">
-      <UnionHeader title="Union News" />
+    <UnionLayout activeTab="announcements" onLogout={onLogout}>
+      <UnionHeader title="Union News" onLogout={onLogout} />
       
       <div className="p-4 space-y-4">
         {/* Featured Announcement */}

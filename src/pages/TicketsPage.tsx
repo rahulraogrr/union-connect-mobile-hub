@@ -55,10 +55,14 @@ const getPriorityColor = (priority: string) => {
   }
 };
 
-export default function TicketsPage() {
+interface TicketsPageProps {
+  onLogout?: () => void;
+}
+
+export default function TicketsPage({ onLogout }: TicketsPageProps) {
   return (
-    <UnionLayout activeTab="tickets">
-      <UnionHeader title="My Tickets" />
+    <UnionLayout activeTab="tickets" onLogout={onLogout}>
+      <UnionHeader title="My Tickets" onLogout={onLogout} />
       
       <div className="p-4 space-y-4">
         {/* Search and Filter */}

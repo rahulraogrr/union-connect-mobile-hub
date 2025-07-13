@@ -1,4 +1,4 @@
-import { Bell, Menu } from "lucide-react";
+import { Bell, Menu, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface UnionHeaderProps {
@@ -6,13 +6,15 @@ interface UnionHeaderProps {
   showMenu?: boolean;
   showNotifications?: boolean;
   onMenuClick?: () => void;
+  onLogout?: () => void;
 }
 
 export const UnionHeader = ({ 
   title, 
   showMenu = true, 
   showNotifications = true,
-  onMenuClick 
+  onMenuClick,
+  onLogout 
 }: UnionHeaderProps) => {
   return (
     <header className="bg-gradient-to-r from-primary to-secondary text-primary-foreground sticky top-0 z-50 shadow-union">
@@ -36,18 +38,30 @@ export const UnionHeader = ({
         </div>
 
         {/* Right side */}
-        {showNotifications && (
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-primary-foreground hover:bg-white/10 relative"
-          >
-            <Bell size={20} />
-            <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              3
-            </span>
-          </Button>
-        )}
+        <div className="flex items-center gap-2">
+          {showNotifications && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-primary-foreground hover:bg-white/10 relative"
+            >
+              <Bell size={20} />
+              <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                3
+              </span>
+            </Button>
+          )}
+          {onLogout && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onLogout}
+              className="text-primary-foreground hover:bg-white/10"
+            >
+              <LogOut size={20} />
+            </Button>
+          )}
+        </div>
       </div>
     </header>
   );

@@ -5,10 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TicketIcon, Bell, Users, Calendar, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function HomePage() {
+interface HomePageProps {
+  onLogout?: () => void;
+}
+
+export default function HomePage({ onLogout }: HomePageProps) {
   return (
-    <UnionLayout activeTab="home">
-      <UnionHeader title="Welcome Back" />
+    <UnionLayout activeTab="home" onLogout={onLogout}>
+      <UnionHeader title="Welcome Back" onLogout={onLogout} />
       
       <div className="p-4 space-y-6">
         {/* Quick Actions */}
