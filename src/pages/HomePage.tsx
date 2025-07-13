@@ -23,16 +23,16 @@ export default function HomePage({ onLogout }: HomePageProps) {
               <Card className="bg-gradient-primary text-primary-foreground shadow-card hover:shadow-union transition-all duration-300">
                 <CardContent className="flex flex-col items-center justify-center p-4 space-y-2">
                   <TicketIcon size={24} />
-                  <span className="font-medium">Raise Ticket</span>
+                  <span className="font-medium">Create Ticket</span>
                 </CardContent>
               </Card>
             </Link>
             
-            <Link to="/announcements">
+            <Link to="/payments">
               <Card className="bg-gradient-union text-primary-foreground shadow-card hover:shadow-union transition-all duration-300">
                 <CardContent className="flex flex-col items-center justify-center p-4 space-y-2">
-                  <Bell size={24} />
-                  <span className="font-medium">Latest News</span>
+                  <TrendingUp size={24} />
+                  <span className="font-medium">Payments</span>
                 </CardContent>
               </Card>
             </Link>
