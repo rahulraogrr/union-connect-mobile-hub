@@ -3,6 +3,16 @@ import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
 import te from './locales/te.json';
 
+// Get initial language safely
+const getInitialLanguage = () => {
+  try {
+    return typeof window !== 'undefined' ? localStorage.getItem('language') || 'en' : 'en';
+  } catch {
+    return 'en';
+  }
+};
+
+// Initialize i18n synchronously
 i18n
   .use(initReactI18next)
   .init({
@@ -14,10 +24,13 @@ i18n
         translation: te
       }
     },
-    lng: localStorage.getItem('language') || 'en',
+    lng: getInitialLanguage(),
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false
+    },
+    react: {
+      useSuspense: false
     }
   });
 
