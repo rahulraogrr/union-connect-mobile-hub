@@ -43,18 +43,6 @@ export const UnionHeader = ({
         {/* Right side */}
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          {showNotifications && (
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-primary-foreground hover:bg-white/10 relative"
-            >
-              <Bell size={20} />
-              <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                3
-              </span>
-            </Button>
-          )}
           {onLogout && (
             <Button
               variant="ghost"

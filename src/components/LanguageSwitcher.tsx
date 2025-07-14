@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Globe } from 'lucide-react';
 
 export default function LanguageSwitcher() {
@@ -14,17 +14,30 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center space-x-2">
-      <Globe className="h-4 w-4 text-muted-foreground" />
-      <Select value={i18n.language} onValueChange={changeLanguage}>
-        <SelectTrigger className="w-32">
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="en">English</SelectItem>
-          <SelectItem value="te">తెలుగు</SelectItem>
-        </SelectContent>
-      </Select>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-primary-foreground hover:bg-white/10 p-2"
+        >
+          <Globe className="h-5 w-5" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="z-50 bg-background border shadow-lg">
+        <DropdownMenuItem 
+          onClick={() => changeLanguage('en')}
+          className="cursor-pointer hover:bg-muted"
+        >
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem 
+          onClick={() => changeLanguage('te')}
+          className="cursor-pointer hover:bg-muted"
+        >
+          తెలుగు
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
