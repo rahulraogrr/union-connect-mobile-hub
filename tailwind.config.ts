@@ -23,6 +23,15 @@ export default {
 				'body': ['Roboto', 'sans-serif'],
 				'sans': ['Roboto', 'sans-serif'],
 			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-union': 'var(--gradient-union)',
+				'gradient-hero': 'var(--gradient-hero)',
+			},
+			boxShadow: {
+				'union': 'var(--shadow-union)',
+				'card': 'var(--shadow-card)',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
