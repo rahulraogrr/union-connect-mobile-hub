@@ -4,26 +4,30 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TicketIcon, Bell, Users, Calendar, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 interface HomePageProps {
   onLogout?: () => void;
 }
 
 export default function HomePage({ onLogout }: HomePageProps) {
+  const { t } = useTranslation();
+  
   return (
     <UnionLayout activeTab="home" onLogout={onLogout}>
-      <UnionHeader title="Welcome Back" onLogout={onLogout} />
+      <UnionHeader title={t('home.title')} onLogout={onLogout} />
       
       <div className="p-4 space-y-6">
         {/* Quick Actions */}
         <section>
-          <h2 className="font-heading font-semibold text-lg mb-4">Quick Actions</h2>
+          <h2 className="font-heading font-semibold text-lg mb-4">{t('home.quickActions')}</h2>
           <div className="grid grid-cols-2 gap-3">
             <Link to="/tickets/new">
               <Card className="bg-gradient-primary text-primary-foreground shadow-card hover:shadow-union transition-all duration-300">
                 <CardContent className="flex flex-col items-center justify-center p-4 space-y-2">
                   <TicketIcon size={24} />
-                  <span className="font-medium">Create Ticket</span>
+                  <span className="font-medium">{t('home.createTicket')}</span>
+                  <p className="text-xs text-center opacity-90">{t('home.createTicketDesc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -32,7 +36,8 @@ export default function HomePage({ onLogout }: HomePageProps) {
               <Card className="bg-gradient-union text-primary-foreground shadow-card hover:shadow-union transition-all duration-300">
                 <CardContent className="flex flex-col items-center justify-center p-4 space-y-2">
                   <TrendingUp size={24} />
-                  <span className="font-medium">Payments</span>
+                  <span className="font-medium">{t('home.viewPayments')}</span>
+                  <p className="text-xs text-center opacity-90">{t('home.viewPaymentsDesc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -42,10 +47,10 @@ export default function HomePage({ onLogout }: HomePageProps) {
         {/* Recent Activity */}
         <section>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-heading font-semibold text-lg">Recent Activity</h2>
+            <h2 className="font-heading font-semibold text-lg">{t('home.recentActivity')}</h2>
             <Link to="/tickets">
               <Button variant="ghost" size="sm" className="text-primary">
-                View All
+                {t('common.view')} {t('common.all')}
               </Button>
             </Link>
           </div>
@@ -79,13 +84,13 @@ export default function HomePage({ onLogout }: HomePageProps) {
 
         {/* Union Stats */}
         <section>
-          <h2 className="font-heading font-semibold text-lg mb-4">Union Overview</h2>
+          <h2 className="font-heading font-semibold text-lg mb-4">{t('home.unionOverview')}</h2>
           <div className="grid grid-cols-3 gap-3">
             <Card className="shadow-card">
               <CardContent className="p-3 text-center">
                 <Users className="mx-auto mb-2 text-primary" size={20} />
                 <p className="text-2xl font-bold text-primary">1,247</p>
-                <p className="text-xs text-muted-foreground">Members</p>
+                <p className="text-xs text-muted-foreground">{t('home.activeMembers')}</p>
               </CardContent>
             </Card>
             
@@ -93,7 +98,7 @@ export default function HomePage({ onLogout }: HomePageProps) {
               <CardContent className="p-3 text-center">
                 <TicketIcon className="mx-auto mb-2 text-accent" size={20} />
                 <p className="text-2xl font-bold text-accent">43</p>
-                <p className="text-xs text-muted-foreground">Open Tickets</p>
+                <p className="text-xs text-muted-foreground">{t('home.pendingTickets')}</p>
               </CardContent>
             </Card>
             

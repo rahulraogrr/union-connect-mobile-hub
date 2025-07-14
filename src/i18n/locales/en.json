@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Home",
+    "tickets": "Tickets",
+    "announcements": "Announcements",
+    "connect": "Connect",
+    "profile": "Profile",
+    "payments": "Payments",
+    "logout": "Logout"
+  },
+  "login": {
+    "title": "Union Portal Login",
+    "subtitle": "Welcome back! Please sign in to your account.",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Sign In",
+    "demoHint": "Enter any username and password to login"
+  },
+  "home": {
+    "title": "Welcome to Union Portal",
+    "subtitle": "Your one-stop platform for all union activities and services",
+    "quickActions": "Quick Actions",
+    "createTicket": "Create Ticket",
+    "createTicketDesc": "Submit a new support request or complaint",
+    "viewPayments": "View Payments",
+    "viewPaymentsDesc": "Check your dues and payment history",
+    "recentActivity": "Recent Activity",
+    "unionOverview": "Union Overview",
+    "activeMembers": "Active Members",
+    "pendingTickets": "Pending Tickets",
+    "completedTickets": "Completed Tickets",
+    "totalPayments": "Total Payments"
+  },
+  "tickets": {
+    "title": "Support Tickets",
+    "create": "Create New Ticket",
+    "status": "Status",
+    "priority": "Priority",
+    "date": "Date",
+    "subject": "Subject",
+    "description": "Description",
+    "category": "Category",
+    "selectCategory": "Select a category",
+    "selectPriority": "Select priority",
+    "submitTicket": "Submit Ticket",
+    "ticketSubmitted": "Ticket submitted successfully!",
+    "categories": {
+      "general": "General Inquiry",
+      "complaint": "Complaint",
+      "suggestion": "Suggestion",
+      "technical": "Technical Support"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    },
+    "statuses": {
+      "open": "Open",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    }
+  },
+  "payments": {
+    "title": "Payment Management",
+    "duesOverview": "Dues Overview",
+    "monthlyDues": "Monthly Dues",
+    "specialFees": "Special Fees",
+    "totalDue": "Total Due",
+    "paymentHistory": "Payment History",
+    "makePayment": "Make Payment",
+    "paymentMade": "Payment made successfully!",
+    "amount": "Amount",
+    "type": "Type",
+    "date": "Date",
+    "status": "Status",
+    "paid": "Paid",
+    "pending": "Pending",
+    "overdue": "Overdue"
+  },
+  "announcements": {
+    "title": "Union Announcements",
+    "subtitle": "Stay updated with the latest news and updates from our union"
+  },
+  "connect": {
+    "title": "Connect with Union",
+    "subtitle": "Get in touch with union representatives and fellow members"
+  },
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "Manage your account settings and personal information"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All",
+    "none": "None",
+    "select": "Select",
+    "language": "Language"
+  }
+}

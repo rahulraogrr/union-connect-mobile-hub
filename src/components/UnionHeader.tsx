@@ -1,5 +1,7 @@
 import { Bell, Menu, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface UnionHeaderProps {
   title: string;
@@ -16,6 +18,7 @@ export const UnionHeader = ({
   onMenuClick,
   onLogout 
 }: UnionHeaderProps) => {
+  const { t } = useTranslation();
   return (
     <header className="bg-gradient-to-r from-primary to-secondary text-primary-foreground sticky top-0 z-50 shadow-union">
       <div className="flex items-center justify-between px-4 py-4">
@@ -39,6 +42,7 @@ export const UnionHeader = ({
 
         {/* Right side */}
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           {showNotifications && (
             <Button
               variant="ghost"
@@ -57,6 +61,7 @@ export const UnionHeader = ({
               size="sm"
               onClick={onLogout}
               className="text-primary-foreground hover:bg-white/10"
+              title={t('nav.logout')}
             >
               <LogOut size={20} />
             </Button>

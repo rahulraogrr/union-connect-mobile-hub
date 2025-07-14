@@ -1,20 +1,21 @@
 import { Home, MessageSquare, Bell, User, TicketIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 interface NavItem {
   icon: any;
-  label: string;
+  labelKey: string;
   path: string;
   id: string;
 }
 
 const navItems: NavItem[] = [
-  { icon: Home, label: "Home", path: "/", id: "home" },
-  { icon: TicketIcon, label: "Tickets", path: "/tickets", id: "tickets" },
-  { icon: Bell, label: "News", path: "/announcements", id: "announcements" },
-  { icon: MessageSquare, label: "Connect", path: "/connect", id: "connect" },
-  { icon: User, label: "Profile", path: "/profile", id: "profile" },
+  { icon: Home, labelKey: "nav.home", path: "/", id: "home" },
+  { icon: TicketIcon, labelKey: "nav.tickets", path: "/tickets", id: "tickets" },
+  { icon: Bell, labelKey: "nav.announcements", path: "/announcements", id: "announcements" },
+  { icon: MessageSquare, labelKey: "nav.connect", path: "/connect", id: "connect" },
+  { icon: User, labelKey: "nav.profile", path: "/profile", id: "profile" },
 ];
 
 interface BottomNavigationProps {
@@ -23,6 +24,7 @@ interface BottomNavigationProps {
 
 export const BottomNavigation = ({ activeTab }: BottomNavigationProps) => {
   const location = useLocation();
+  const { t } = useTranslation();
   
   const getIsActive = (item: NavItem) => {
     if (activeTab) return activeTab === item.id;
@@ -51,7 +53,7 @@ export const BottomNavigation = ({ activeTab }: BottomNavigationProps) => {
                 "transition-all duration-200",
                 isActive && "scale-110"
               )} />
-              <span className="text-xs font-medium">{item.label}</span>
+              <span className="text-xs font-medium">{t(item.labelKey)}</span>
             </Link>
           );
         })}
