@@ -25,10 +25,11 @@ interface AdminDashboardProps {
 
 export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const { t } = useTranslation();
-  const { user } = useUser();
+  const { user, getHighestRole, hasAnyRole } = useUser();
   
   const getRoleDisplayName = () => {
-    switch (user?.role) {
+    const highestRole = getHighestRole();
+    switch (highestRole) {
       case 'manager': return 'Manager';
       case 'director': return 'Director';
       case 'managing_director': return 'Managing Director';
@@ -37,10 +38,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
     }
   };
 
-  const canApproveTickets = user?.role && ['manager', 'director', 'managing_director', 'super'].includes(user.role);
-  const canCreateNews = user?.role && ['director', 'managing_director', 'super'].includes(user.role);
-  const canManageUsers = user?.role && ['managing_director', 'super'].includes(user.role);
-  const canAccessSettings = user?.role === 'super';
+  const canApproveTickets = hasAnyRole(['manager', 'director', 'managing_director', 'super']);
+  const canCreateNews = hasAnyRole(['director', 'managing_director', 'super']);
+  const canManageUsers = hasAnyRole(['managing_director', 'super']);
+  const canAccessSettings = hasAnyRole(['super']);
   
   return (
     <UnionLayout activeTab="home" onLogout={onLogout}>
@@ -53,9 +54,13 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
       <div className="p-4 space-y-6">
         {/* Role Badge */}
         <div className="flex justify-center">
-          <Badge variant="secondary" className="text-lg px-4 py-2">
-            {getRoleDisplayName()}
-          </Badge>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {user?.roles.map((role) => (
+              <Badge key={role} variant="secondary" className="px-3 py-1">
+                {role.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </Badge>
+            ))}
+          </div>
         </div>
 
         {/* Admin Quick Actions */}

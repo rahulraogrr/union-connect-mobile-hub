@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from 'react-i18next';
 import { useUser, UserRole } from '@/contexts/UserContext';
@@ -15,7 +15,7 @@ interface LoginPageProps {
 export default function LoginPage({ onLogin }: LoginPageProps) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState<UserRole>("user");
+  const [selectedRoles, setSelectedRoles] = useState<UserRole[]>(["user"]);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
@@ -33,17 +33,26 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       return;
     }
 
+    if (selectedRoles.length === 0) {
+      toast({
+        title: t('common.error'),
+        description: "Please select at least one role",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
     
     // Simulate login delay
     setTimeout(() => {
       setIsLoading(false);
       
-      // Create user based on selected role
+      // Create user with multiple roles
       const user = {
         id: Date.now().toString(),
         username,
-        role,
+        roles: selectedRoles,
         name: username.charAt(0).toUpperCase() + username.slice(1),
       };
       
@@ -55,6 +64,22 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       });
       onLogin();
     }, 1000);
+  };
+
+  const roleOptions = [
+    { value: 'user', label: 'User' },
+    { value: 'manager', label: 'Manager' },
+    { value: 'director', label: 'Director' },
+    { value: 'managing_director', label: 'Managing Director' },
+    { value: 'super', label: 'Super Admin' },
+  ];
+
+  const handleRoleToggle = (role: UserRole) => {
+    setSelectedRoles(prev => 
+      prev.includes(role) 
+        ? prev.filter(r => r !== role)
+        : [...prev, role]
+    );
   };
 
   return (
@@ -88,20 +113,25 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                 required
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="role">Role</Label>
-              <Select value={role} onValueChange={(value: UserRole) => setRole(value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select your role" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="user">User</SelectItem>
-                  <SelectItem value="manager">Manager</SelectItem>
-                  <SelectItem value="director">Director</SelectItem>
-                  <SelectItem value="managing_director">Managing Director</SelectItem>
-                  <SelectItem value="super">Super Admin</SelectItem>
-                </SelectContent>
-              </Select>
+            <div className="space-y-3">
+              <Label>Roles (Select one or more)</Label>
+              <div className="space-y-2">
+                {roleOptions.map((option) => (
+                  <div key={option.value} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={option.value}
+                      checked={selectedRoles.includes(option.value as UserRole)}
+                      onCheckedChange={() => handleRoleToggle(option.value as UserRole)}
+                    />
+                    <Label 
+                      htmlFor={option.value} 
+                      className="text-sm font-normal cursor-pointer"
+                    >
+                      {option.label}
+                    </Label>
+                  </div>
+                ))}
+              </div>
             </div>
             <Button 
               type="submit" 

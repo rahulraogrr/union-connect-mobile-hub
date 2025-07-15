@@ -41,7 +41,7 @@ function AppContent() {
   }
 
   // Determine which home page to show based on user role
-  const isAdminUser = user && ['manager', 'director', 'managing_director', 'super'].includes(user.role);
+  const isAdminUser = user && user.roles.some(role => ['manager', 'director', 'managing_director', 'super'].includes(role));
   const DashboardComponent = isAdminUser ? AdminDashboard : HomePage;
 
   return (
