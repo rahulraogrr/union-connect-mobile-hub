@@ -66,6 +66,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     }, 1000);
   };
 
+  // Role options for multi-role selection
   const roleOptions = [
     { value: 'user', label: 'User' },
     { value: 'manager', label: 'Manager' },
@@ -74,6 +75,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     { value: 'super', label: 'Super Admin' },
   ];
 
+  // Handle role selection/deselection
   const handleRoleToggle = (role: UserRole) => {
     setSelectedRoles(prev => 
       prev.includes(role) 
