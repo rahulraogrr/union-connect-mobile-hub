@@ -19,12 +19,12 @@ import {
 } from "lucide-react";
 
 const userProfile = {
-  name: "John Smith",
+  name: "Ramana Salvaji",
   memberId: "TEE-1104-5678",
-  email: "john.smith@company.com",
-  phone: "+1 (555) 987-6543",
-  department: "Manufacturing",
-  position: "Senior Technician",
+  email: "ramana.salvaji@company.com",
+  phone: "+91 (555) 987-6543",
+  department: "Transmission Department",
+  position: "Assistant Engineer",
   joinDate: "March 15, 2019",
   membershipStatus: "Active",
   location: "Building C, Floor 2"
@@ -54,7 +54,7 @@ export default function ProfilePage({ onLogout }: ProfilePageProps) {
               <Avatar className="w-20 h-20">
                 <AvatarImage src="" />
                 <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">
-                  JS
+                  RS
                 </AvatarFallback>
               </Avatar>
               
