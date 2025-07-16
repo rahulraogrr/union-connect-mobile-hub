@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TicketIcon, Bell, Users, Calendar, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useUser } from '@/contexts/UserContext';
 
 interface HomePageProps {
   onLogout?: () => void;
@@ -12,12 +13,21 @@ interface HomePageProps {
 
 export default function HomePage({ onLogout }: HomePageProps) {
   const { t } = useTranslation();
+  const { user } = useUser();
   
   return (
     <UnionLayout activeTab="home" onLogout={onLogout}>
       <UnionHeader title={t('home.title')} onLogout={onLogout} />
       
       <div className="p-4 space-y-6">
+        {/* Welcome Message */}
+        <section className="mb-6">
+          <h1 className="font-heading font-bold text-xl text-primary">Welcome {user?.name}</h1>
+          <p className="text-muted-foreground text-sm">
+            {user?.roles.join(', ')} • Location: TEE 1104
+          </p>
+        </section>
+
         {/* Quick Actions */}
         <section>
           <h2 className="font-heading font-semibold text-lg mb-4">{t('home.quickActions')}</h2>
