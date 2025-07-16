@@ -24,19 +24,8 @@ export const UnionHeader = ({
       <div className="flex items-center justify-between px-4 py-4">
         {/* Left side */}
         <div className="flex items-center space-x-3">
-          {showMenu && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onMenuClick}
-              className="text-primary-foreground hover:bg-white/10"
-            >
-              <Menu size={20} />
-            </Button>
-          )}
           <div>
-            <h1 className="font-heading font-semibold text-lg">{title}</h1>
-            <p className="text-xs text-primary-foreground/80">TEE 1104 Union</p>
+            <h1 className="font-heading font-semibold text-lg">TEE 1104 Union</h1>
           </div>
         </div>
 
