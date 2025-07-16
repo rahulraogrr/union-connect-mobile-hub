@@ -24,7 +24,7 @@ export default function HomePage({ onLogout }: HomePageProps) {
         <section className="mb-6">
           <h1 className="font-heading font-bold text-xl text-primary">Welcome {user?.name},</h1>
           <p className="text-muted-foreground text-sm">
-            {user?.roles.includes('user') ? 'Lineman' : user?.roles[0]} : Karimnagar
+            Assistant Engineer : Transmission Department
           </p>
         </section>
 

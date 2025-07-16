@@ -53,7 +53,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
         id: Date.now().toString(),
         username,
         roles: selectedRoles,
-        name: username.charAt(0).toUpperCase() + username.slice(1),
+        name: "Ramana Salvaji",
       };
       
       setUser(user);
