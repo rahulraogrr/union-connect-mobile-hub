@@ -22,7 +22,7 @@ export default function HomePage({ onLogout }: HomePageProps) {
       <div className="p-4 space-y-6">
         {/* Welcome Message */}
         <section className="mb-6">
-          <h1 className="font-heading font-bold text-xl text-primary">Welcome {user?.name},</h1>
+          <h1 className="font-heading font-bold text-xl text-primary">Welcome {user?.name || 'Guest'},</h1>
           <p className="text-muted-foreground text-sm">
             Assistant Engineer : Transmission Department
           </p>
