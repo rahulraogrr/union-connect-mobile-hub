@@ -1,21 +1,25 @@
-import { useState, Suspense } from "react";
+import { useState, Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AdminDashboard from "./pages/AdminDashboard";
-import TicketsPage from "./pages/TicketsPage";
-import CreateTicketPage from "./pages/CreateTicketPage";
-import AnnouncementsPage from "./pages/AnnouncementsPage";
-import ConnectPage from "./pages/ConnectPage";
-import ProfilePage from "./pages/ProfilePage";
-import PaymentsPage from "./pages/PaymentsPage";
-import NotFound from "./pages/NotFound";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import { LoadingBoundary } from "./components/LoadingBoundary";
 import LoginPage from "./pages/LoginPage";
 import { UserProvider, useUser } from "./contexts/UserContext";
 import './i18n';
+
+// Lazy load pages for better performance
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const TicketsPage = lazy(() => import("./pages/TicketsPage"));
+const CreateTicketPage = lazy(() => import("./pages/CreateTicketPage"));
+const AnnouncementsPage = lazy(() => import("./pages/AnnouncementsPage"));
+const ConnectPage = lazy(() => import("./pages/ConnectPage"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const PaymentsPage = lazy(() => import("./pages/PaymentsPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -45,7 +49,7 @@ function AppContent() {
   const DashboardComponent = isAdminUser ? AdminDashboard : HomePage;
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <LoadingBoundary>
       <Toaster />
       <Sonner />
       <BrowserRouter>
@@ -61,19 +65,21 @@ function AppContent() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </Suspense>
+    </LoadingBoundary>
   );
 }
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <UserProvider>
-          <AppContent />
-        </UserProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <UserProvider>
+            <AppContent />
+          </UserProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 
