@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { LoadingBoundary } from "./components/LoadingBoundary";
+import { AccessibilityProvider } from "./components/AccessibilityProvider";
+import { SecurityProvider } from "./components/security/SecurityProvider";
 import LoginPage from "./pages/LoginPage";
 import { UserProvider, useUser } from "./contexts/UserContext";
 import './i18n';
@@ -72,13 +74,17 @@ function AppContent() {
 const App = () => {
   return (
     <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <UserProvider>
-            <AppContent />
-          </UserProvider>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <SecurityProvider>
+        <AccessibilityProvider>
+          <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+              <UserProvider>
+                <AppContent />
+              </UserProvider>
+            </TooltipProvider>
+          </QueryClientProvider>
+        </AccessibilityProvider>
+      </SecurityProvider>
     </ErrorBoundary>
   );
 };

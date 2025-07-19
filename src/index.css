@@ -192,6 +192,80 @@ All colors MUST be HSL.
     line-height: 1.75rem;
   }
 
+  /* Accessibility enhancements */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Keyboard navigation styles */
+  .keyboard-navigation *:focus {
+    outline: 2px solid hsl(var(--primary)) !important;
+    outline-offset: 2px;
+  }
+
+  .keyboard-navigation button:focus,
+  .keyboard-navigation [role="button"]:focus {
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary));
+  }
+
+  /* Screen reader mode enhancements */
+  .screen-reader-mode .hover\:opacity-70:hover {
+    opacity: 1;
+  }
+
+  .screen-reader-mode [role="button"][aria-pressed] {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Focus management */
+  .focus-management [data-focus-guard] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Skip link styles */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 8px;
+    z-index: 1000;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: top 0.3s;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
   /* Focus Management */
   *:focus {
     outline: 2px solid hsl(var(--ring));
