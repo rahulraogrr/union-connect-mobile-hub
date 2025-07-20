@@ -100,11 +100,11 @@ export const SystemMetrics: React.FC<{ className?: string }> = ({
             <div className="space-y-2">
               <div className="text-2xl font-bold">
                 {(metrics.performance.navigation.loadEventEnd - 
-                  metrics.performance.navigation.navigationStart).toFixed(0)}ms
+                  metrics.performance.navigation.loadEventStart).toFixed(0)}ms
               </div>
               <div className="text-xs text-muted-foreground">
                 DOM: {(metrics.performance.navigation.domContentLoadedEventEnd - 
-                       metrics.performance.navigation.navigationStart).toFixed(0)}ms
+                       metrics.performance.navigation.loadEventStart).toFixed(0)}ms
               </div>
             </div>
           </CardContent>

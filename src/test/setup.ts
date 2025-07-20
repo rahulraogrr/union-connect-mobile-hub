@@ -1,6 +1,6 @@
 // Test setup and configuration
 import '@testing-library/jest-dom';
-import { vi, beforeAll, afterAll, afterEach } from 'vitest';
+import { vi, afterEach } from 'vitest';
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -37,8 +37,10 @@ const localStorageMock = {
   setItem: vi.fn(),
   removeItem: vi.fn(),
   clear: vi.fn(),
+  length: 0,
+  key: vi.fn(),
 };
-global.localStorage = localStorageMock;
+global.localStorage = localStorageMock as any;
 
 // Mock sessionStorage
 const sessionStorageMock = {
@@ -46,8 +48,10 @@ const sessionStorageMock = {
   setItem: vi.fn(),
   removeItem: vi.fn(),
   clear: vi.fn(),
+  length: 0,
+  key: vi.fn(),
 };
-global.sessionStorage = sessionStorageMock;
+global.sessionStorage = sessionStorageMock as any;
 
 // Mock window.crypto
 Object.defineProperty(window, 'crypto', {
@@ -90,29 +94,5 @@ export const createMockError = (message = 'Test error') => new Error(message);
 
 export const waitForNextTick = () => new Promise(resolve => setTimeout(resolve, 0));
 
-// Custom render function with providers
-import { render, RenderOptions } from '@testing-library/react';
-import { ReactElement } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { ErrorBoundary } from '../components/ErrorBoundary';
-import { AccessibilityProvider } from '../components/AccessibilityProvider';
-
-const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <BrowserRouter>
-      <ErrorBoundary>
-        <AccessibilityProvider>
-          {children}
-        </AccessibilityProvider>
-      </ErrorBoundary>
-    </BrowserRouter>
-  );
-};
-
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>
-) => render(ui, { wrapper: AllTheProviders, ...options });
-
+// Re-export testing utilities
 export * from '@testing-library/react';
-export { customRender as render };
