@@ -28,8 +28,11 @@ const queryClient = new QueryClient();
 function AppContent() {
   const { isAuthenticated, setUser, user } = useUser();
 
+  console.log('AppContent rendering:', { isAuthenticated, user });
+
   const handleLogin = () => {
     // Authentication is now handled by UserContext
+    console.log('handleLogin called');
   };
 
   const handleLogout = () => {
@@ -37,6 +40,7 @@ function AppContent() {
   };
 
   if (!isAuthenticated) {
+    console.log('User not authenticated, showing LoginPage');
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <Toaster />
