@@ -52,6 +52,19 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
       />
       
       <div className="p-4 space-y-6">
+        {/* Admin Header with Logo */}
+        <div className="flex items-center justify-center space-x-4 mb-6">
+          <img 
+            src="/lovable-uploads/09196c45-5ecd-44e8-8d21-50dc215f80dd.png" 
+            alt="TEE 1104 Union Logo" 
+            className="h-12 w-12 rounded-full bg-primary/5 p-1"
+          />
+          <div className="text-center">
+            <h1 className="font-heading font-bold text-xl text-primary">Admin Control Center</h1>
+            <p className="text-muted-foreground text-sm">TEE 1104 Union Management</p>
+          </div>
+        </div>
+
         {/* Role Badge */}
         <div className="flex justify-center">
           <div className="flex flex-wrap gap-2 justify-center">

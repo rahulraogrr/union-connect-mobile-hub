@@ -24,6 +24,11 @@ export const UnionHeader = ({
       <div className="flex items-center justify-between px-4 py-4">
         {/* Left side */}
         <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/09196c45-5ecd-44e8-8d21-50dc215f80dd.png" 
+            alt="TEE 1104 Union Logo" 
+            className="h-10 w-10 rounded-full bg-white/10 p-1"
+          />
           <div>
             <h1 className="font-heading font-semibold text-lg">TEE 1104 Union</h1>
           </div>

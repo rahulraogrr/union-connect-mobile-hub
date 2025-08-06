@@ -20,12 +20,21 @@ export default function HomePage({ onLogout }: HomePageProps) {
       <UnionHeader title={t('home.title')} onLogout={onLogout} />
       
       <div className="p-4 space-y-6">
-        {/* Welcome Message */}
+        {/* Welcome Message with Logo */}
         <section className="mb-6">
-          <h1 className="font-heading font-bold text-xl text-primary">Welcome {user?.name || 'Guest'},</h1>
-          <p className="text-muted-foreground text-sm">
-            Assistant Engineer : Transmission Department
-          </p>
+          <div className="flex items-center space-x-4 mb-4">
+            <img 
+              src="/lovable-uploads/09196c45-5ecd-44e8-8d21-50dc215f80dd.png" 
+              alt="TEE 1104 Union Logo" 
+              className="h-16 w-16 rounded-full bg-primary/5 p-2"
+            />
+            <div>
+              <h1 className="font-heading font-bold text-xl text-primary">Welcome {user?.name || 'Guest'},</h1>
+              <p className="text-muted-foreground text-sm">
+                Assistant Engineer : Transmission Department
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Quick Actions */}

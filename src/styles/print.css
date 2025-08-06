@@ -1,0 +1,94 @@
+/* Print Styles for Union Documents */
+@media print {
+  /* Hide unnecessary elements */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Print header with logo */
+  .print-header {
+    display: flex !important;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
+  }
+  
+  .print-header img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+  }
+  
+  .print-header-text {
+    flex: 1;
+  }
+  
+  .print-header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #000;
+  }
+  
+  .print-header p {
+    font-size: 12px;
+    margin: 2px 0 0 0;
+    color: #666;
+  }
+  
+  /* Print footer */
+  .print-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-size: 10px;
+    text-align: center;
+  }
+  
+  /* General print optimizations */
+  body {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #000;
+    background: white;
+  }
+  
+  .print-page {
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+  }
+  
+  /* Ensure proper page breaks */
+  .print-section {
+    page-break-inside: avoid;
+    margin-bottom: 15px;
+  }
+  
+  h1, h2, h3 {
+    color: #000;
+    page-break-after: avoid;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #000;
+    padding: 5px;
+    font-size: 11px;
+  }
+  
+  table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+}

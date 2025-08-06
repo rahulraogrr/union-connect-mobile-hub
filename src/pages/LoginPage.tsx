@@ -79,7 +79,14 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   return (
     <div className="min-h-screen bg-gradient-primary flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
-        <CardHeader className="text-center space-y-2">
+        <CardHeader className="text-center space-y-4">
+          <div className="flex justify-center">
+            <img 
+              src="/lovable-uploads/09196c45-5ecd-44e8-8d21-50dc215f80dd.png" 
+              alt="TEE 1104 Union Logo" 
+              className="h-20 w-20 rounded-full bg-white/5 p-2"
+            />
+          </div>
           <CardTitle className="text-2xl font-heading text-primary">{t('login.title')}</CardTitle>
           <CardDescription>{t('login.subtitle')}</CardDescription>
         </CardHeader>
