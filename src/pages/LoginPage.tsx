@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from 'react-i18next';
 import { useUser, UserRole } from '@/contexts/UserContext';
@@ -15,11 +14,19 @@ interface LoginPageProps {
 export default function LoginPage({ onLogin }: LoginPageProps) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [selectedRoles, setSelectedRoles] = useState<UserRole[]>(["user"]);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
   const { setUser } = useUser();
+
+  // Predefined user accounts with roles
+  const predefinedUsers = {
+    user: { password: "user", role: "user" as UserRole, name: "Regular User" },
+    manager: { password: "manager", role: "manager" as UserRole, name: "Department Manager" },
+    director: { password: "director", role: "director" as UserRole, name: "Company Director" },
+    managing_director: { password: "managing_director", role: "managing_director" as UserRole, name: "Managing Director" },
+    super: { password: "super", role: "super" as UserRole, name: "Super Administrator" },
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,10 +40,12 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       return;
     }
 
-    if (selectedRoles.length === 0) {
+    // Check if user exists and password matches
+    const userAccount = predefinedUsers[username as keyof typeof predefinedUsers];
+    if (!userAccount || userAccount.password !== password) {
       toast({
         title: t('common.error'),
-        description: "Please select at least one role",
+        description: "Invalid username or password",
         variant: "destructive",
       });
       return;
@@ -48,12 +57,12 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     setTimeout(() => {
       setIsLoading(false);
       
-      // Create user with multiple roles
+      // Create user with assigned role
       const user = {
         id: Date.now().toString(),
         username,
-        roles: selectedRoles,
-        name: "Ramana Salvaji",
+        roles: [userAccount.role], // Single role based on username
+        name: userAccount.name,
       };
       
       setUser(user);
@@ -66,23 +75,6 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     }, 1000);
   };
 
-  // Role options for multi-role selection
-  const roleOptions = [
-    { value: 'user', label: 'User' },
-    { value: 'manager', label: 'Manager' },
-    { value: 'director', label: 'Director' },
-    { value: 'managing_director', label: 'Managing Director' },
-    { value: 'super', label: 'Super Admin' },
-  ];
-
-  // Handle role selection/deselection
-  const handleRoleToggle = (role: UserRole) => {
-    setSelectedRoles(prev => 
-      prev.includes(role) 
-        ? prev.filter(r => r !== role)
-        : [...prev, role]
-    );
-  };
 
   return (
     <div className="min-h-screen bg-gradient-primary flex items-center justify-center p-4">
@@ -115,26 +107,6 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                 required
               />
             </div>
-            <div className="space-y-3">
-              <Label>Roles (Select one or more)</Label>
-              <div className="space-y-2">
-                {roleOptions.map((option) => (
-                  <div key={option.value} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={option.value}
-                      checked={selectedRoles.includes(option.value as UserRole)}
-                      onCheckedChange={() => handleRoleToggle(option.value as UserRole)}
-                    />
-                    <Label 
-                      htmlFor={option.value} 
-                      className="text-sm font-normal cursor-pointer"
-                    >
-                      {option.label}
-                    </Label>
-                  </div>
-                ))}
-              </div>
-            </div>
             <Button 
               type="submit" 
               className="w-full" 
@@ -144,9 +116,16 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
             </Button>
           </form>
           <div className="mt-4 p-3 bg-muted rounded-md">
-            <p className="text-sm text-muted-foreground text-center">
-              <strong>Demo:</strong> {t('login.demoHint')}
+            <p className="text-sm text-muted-foreground text-center mb-2">
+              <strong>Demo Accounts:</strong>
             </p>
+            <div className="text-xs text-muted-foreground space-y-1">
+              <div>• user / user (Regular User)</div>
+              <div>• manager / manager (Manager)</div>
+              <div>• director / director (Director)</div>
+              <div>• managing_director / managing_director (MD)</div>
+              <div>• super / super (Super Admin)</div>
+            </div>
           </div>
         </CardContent>
       </Card>
