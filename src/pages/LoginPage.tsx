@@ -84,7 +84,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
             <img 
               src="/lovable-uploads/09196c45-5ecd-44e8-8d21-50dc215f80dd.png" 
               alt="TEE 1104 Union Logo" 
-              className="h-20 w-20 rounded-full bg-white/5 p-2"
+              className="h-28 w-28 rounded-full bg-white/5 p-2"
             />
           </div>
           <CardTitle className="text-2xl font-heading text-primary">{t('login.title')}</CardTitle>
@@ -122,18 +122,6 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
               {isLoading ? t('common.loading') : t('login.loginButton')}
             </Button>
           </form>
-          <div className="mt-4 p-3 bg-muted rounded-md">
-            <p className="text-sm text-muted-foreground text-center mb-2">
-              <strong>Demo Accounts:</strong>
-            </p>
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div>• user / user (Regular User)</div>
-              <div>• manager / manager (Manager)</div>
-              <div>• director / director (Director)</div>
-              <div>• managing_director / managing_director (MD)</div>
-              <div>• super / super (Super Admin)</div>
-            </div>
-          </div>
         </CardContent>
       </Card>
     </div>
