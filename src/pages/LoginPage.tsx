@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { FloatingInput } from "@/components/ui/floating-input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from 'react-i18next';
@@ -92,28 +91,22 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="username">{t('login.username')}</Label>
-              <Input
-                id="username"
-                type="text"
-                placeholder={t('login.username')}
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">{t('login.password')}</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder={t('login.password')}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+            <FloatingInput
+              id="username"
+              type="text"
+              label={t('login.username')}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <FloatingInput
+              id="password"
+              type="password"
+              label={t('login.password')}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
             <Button 
               type="submit" 
               className="w-full" 

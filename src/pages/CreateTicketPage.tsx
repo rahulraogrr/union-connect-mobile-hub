@@ -2,9 +2,8 @@ import { useState } from "react";
 import { UnionLayout } from "@/components/UnionLayout";
 import { UnionHeader } from "@/components/UnionHeader";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { FloatingInput } from "@/components/ui/floating-input";
+import { FloatingTextarea } from "@/components/ui/floating-textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
@@ -69,22 +68,19 @@ export default function CreateTicketPage({ onLogout }: CreateTicketPageProps) {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="title">Ticket Title *</Label>
-                <Input
-                  id="title"
-                  placeholder="Brief description of your issue"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  required
-                />
-              </div>
+              <FloatingInput
+                id="title"
+                label="Ticket Title *"
+                placeholder="Brief description of your issue"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="category">Category *</Label>
+                <div className="relative">
                   <Select value={category} onValueChange={setCategory} required>
-                    <SelectTrigger>
+                    <SelectTrigger className="pt-6 pb-2 h-14">
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
@@ -96,12 +92,14 @@ export default function CreateTicketPage({ onLogout }: CreateTicketPageProps) {
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
+                  <label className={`absolute left-3 text-muted-foreground transition-all duration-200 pointer-events-none ${category ? 'top-2 text-xs text-primary' : 'top-1/2 -translate-y-1/2 text-base'}`}>
+                    Category *
+                  </label>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="priority">Priority *</Label>
+                <div className="relative">
                   <Select value={priority} onValueChange={setPriority} required>
-                    <SelectTrigger>
+                    <SelectTrigger className="pt-6 pb-2 h-14">
                       <SelectValue placeholder="Select priority" />
                     </SelectTrigger>
                     <SelectContent>
@@ -111,20 +109,21 @@ export default function CreateTicketPage({ onLogout }: CreateTicketPageProps) {
                       <SelectItem value="urgent">Urgent</SelectItem>
                     </SelectContent>
                   </Select>
+                  <label className={`absolute left-3 text-muted-foreground transition-all duration-200 pointer-events-none ${priority ? 'top-2 text-xs text-primary' : 'top-1/2 -translate-y-1/2 text-base'}`}>
+                    Priority *
+                  </label>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="description">Description *</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Please provide detailed information about your issue..."
-                  rows={6}
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  required
-                />
-              </div>
+              <FloatingTextarea
+                id="description"
+                label="Description *"
+                placeholder="Please provide detailed information about your issue..."
+                rows={6}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
 
               <div className="bg-muted/30 p-3 rounded-md">
                 <p className="text-sm text-muted-foreground">

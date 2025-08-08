@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Search, Filter } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { FloatingInput } from "@/components/ui/floating-input";
 
 const mockTickets = [
   {
@@ -68,9 +68,9 @@ export default function TicketsPage({ onLogout }: TicketsPageProps) {
         {/* Search and Filter */}
         <div className="flex gap-2">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
-            <Input 
-              placeholder="Search tickets..." 
+            <Search className="absolute left-10 top-1/2 transform -translate-y-1/2 text-muted-foreground z-10" size={16} />
+            <FloatingInput 
+              label="Search tickets..."
               className="pl-10"
             />
           </div>
