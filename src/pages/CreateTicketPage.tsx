@@ -67,21 +67,20 @@ export default function CreateTicketPage({ onLogout }: CreateTicketPageProps) {
             <CardTitle className="text-lg">Submit New Ticket</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <FloatingInput
                 id="title"
                 label="Ticket Title *"
-                placeholder="Brief description of your issue"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
               />
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="relative">
                   <Select value={category} onValueChange={setCategory} required>
-                    <SelectTrigger className="pt-6 pb-2 h-14">
-                      <SelectValue placeholder="Select category" />
+                    <SelectTrigger className="pt-6 pb-2 h-14 border-input">
+                      <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="safety">Safety</SelectItem>
@@ -99,8 +98,8 @@ export default function CreateTicketPage({ onLogout }: CreateTicketPageProps) {
 
                 <div className="relative">
                   <Select value={priority} onValueChange={setPriority} required>
-                    <SelectTrigger className="pt-6 pb-2 h-14">
-                      <SelectValue placeholder="Select priority" />
+                    <SelectTrigger className="pt-6 pb-2 h-14 border-input">
+                      <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="low">Low</SelectItem>
@@ -118,7 +117,6 @@ export default function CreateTicketPage({ onLogout }: CreateTicketPageProps) {
               <FloatingTextarea
                 id="description"
                 label="Description *"
-                placeholder="Please provide detailed information about your issue..."
                 rows={6}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
