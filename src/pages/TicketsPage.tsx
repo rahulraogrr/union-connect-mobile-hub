@@ -68,7 +68,7 @@ export default function TicketsPage({ onLogout }: TicketsPageProps) {
         {/* Search and Filter */}
         <div className="flex gap-2">
           <div className="flex-1 relative">
-            <Search className="absolute left-10 top-1/2 transform -translate-y-1/2 text-muted-foreground z-10" size={16} />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground z-10" size={16} />
             <FloatingInput 
               label="Search tickets..."
               className="pl-10"
