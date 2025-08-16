@@ -37,6 +37,18 @@ export default function LanguageSwitcher() {
         >
           తెలుగు
         </DropdownMenuItem>
+        <DropdownMenuItem 
+          onClick={() => changeLanguage('hi')}
+          className="cursor-pointer hover:bg-muted"
+        >
+          हिंदी
+        </DropdownMenuItem>
+        <DropdownMenuItem 
+          onClick={() => changeLanguage('ur')}
+          className="cursor-pointer hover:bg-muted"
+        >
+          اردو
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

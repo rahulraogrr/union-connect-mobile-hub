@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "होम",
+    "tickets": "टिकट",
+    "announcements": "घोषणाएं",
+    "connect": "संपर्क",
+    "profile": "प्रोफ़ाइल",
+    "payments": "भुगतान",
+    "logout": "लॉग आउट"
+  },
+  "login": {
+    "title": "TEE 1104 यूनियन",
+    "subtitle": "स्वागत है! कृपया अपने खाते में साइन इन करें।",
+    "username": "उपयोगकर्ता नाम",
+    "password": "पासवर्ड",
+    "loginButton": "साइन इन",
+    "demoHint": "लॉगिन करने के लिए कोई भी उपयोगकर्ता नाम और पासवर्ड दर्ज करें"
+  },
+  "home": {
+    "title": "यूनियन पोर्टल में आपका स्वागत है",
+    "subtitle": "सभी यूनियन गतिविधियों और सेवाओं के लिए आपका वन-स्टॉप प्लेटफॉर्म",
+    "quickActions": "त्वरित कार्य",
+    "createTicket": "टिकट बनाएं",
+    "createTicketDesc": "नया सहायता अनुरोध या शिकायत जमा करें",
+    "viewPayments": "भुगतान देखें",
+    "viewPaymentsDesc": "अपने बकाया और भुगतान इतिहास की जांच करें",
+    "recentActivity": "हाल की गतिविधि",
+    "unionOverview": "यूनियन अवलोकन",
+    "activeMembers": "सक्रिय सदस्य",
+    "pendingTickets": "लंबित टिकट",
+    "completedTickets": "पूर्ण टिकट",
+    "totalPayments": "कुल भुगतान"
+  },
+  "tickets": {
+    "title": "सहायता टिकट",
+    "create": "नया टिकट बनाएं",
+    "status": "स्थिति",
+    "priority": "प्राथमिकता",
+    "date": "दिनांक",
+    "subject": "विषय",
+    "description": "विवरण",
+    "category": "श्रेणी",
+    "selectCategory": "श्रेणी चुनें",
+    "selectPriority": "प्राथमिकता चुनें",
+    "submitTicket": "टिकट जमा करें",
+    "ticketSubmitted": "टिकट सफलतापूर्वक जमा हो गया!",
+    "categories": {
+      "general": "सामान्य पूछताछ",
+      "complaint": "शिकायत",
+      "suggestion": "सुझाव",
+      "technical": "तकनीकी सहायता"
+    },
+    "priorities": {
+      "low": "कम",
+      "medium": "मध्यम",
+      "high": "उच्च",
+      "urgent": "तत्काल"
+    },
+    "statuses": {
+      "open": "खुला",
+      "inProgress": "प्रगति में",
+      "resolved": "हल किया गया",
+      "closed": "बंद"
+    }
+  },
+  "payments": {
+    "title": "भुगतान प्रबंधन",
+    "duesOverview": "बकाया अवलोकन",
+    "monthlyDues": "मासिक बकाया",
+    "specialFees": "विशेष शुल्क",
+    "totalDue": "कुल बकाया",
+    "paymentHistory": "भुगतान इतिहास",
+    "makePayment": "भुगतान करें",
+    "paymentMade": "भुगतान सफलतापूर्वक हो गया!",
+    "amount": "राशि",
+    "type": "प्रकार",
+    "date": "दिनांक",
+    "status": "स्थिति",
+    "paid": "भुगतान किया गया",
+    "pending": "लंबित",
+    "overdue": "अतिदेय"
+  },
+  "announcements": {
+    "title": "यूनियन घोषणाएं",
+    "subtitle": "हमारी यूनियन से नवीनतम समाचार और अपडेट के साथ अपडेट रहें"
+  },
+  "connect": {
+    "title": "यूनियन से जुड़ें",
+    "subtitle": "यूनियन प्रतिनिधियों और साथी सदस्यों के साथ संपर्क में रहें"
+  },
+  "profile": {
+    "title": "मेरी प्रोफ़ाइल",
+    "subtitle": "अपनी खाता सेटिंग्स और व्यक्तिगत जानकारी प्रबंधित करें"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "view": "देखें",
+    "back": "वापस",
+    "next": "अगला",
+    "previous": "पिछला",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "sort": "क्रमबद्ध करें",
+    "all": "सभी",
+    "none": "कोई नहीं",
+    "select": "चुनें",
+    "language": "भाषा"
+  }
+}

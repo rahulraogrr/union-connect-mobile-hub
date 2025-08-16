@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "گھر",
+    "tickets": "ٹکٹس",
+    "announcements": "اعلانات",
+    "connect": "رابطہ",
+    "profile": "پروفائل",
+    "payments": "ادائیگی",
+    "logout": "لاگ آؤٹ"
+  },
+  "login": {
+    "title": "TEE 1104 یونین",
+    "subtitle": "خوش آمدید! برائے کرم اپنے اکاؤنٹ میں سائن ان کریں۔",
+    "username": "صارف نام",
+    "password": "پاس ورڈ",
+    "loginButton": "سائن ان",
+    "demoHint": "لاگ ان کرنے کے لیے کوئی بھی صارف نام اور پاس ورڈ داخل کریں"
+  },
+  "home": {
+    "title": "یونین پورٹل میں خوش آمدید",
+    "subtitle": "تمام یونین سرگرمیوں اور خدمات کے لیے آپ کا ون اسٹاپ پلیٹ فارم",
+    "quickActions": "فوری اعمال",
+    "createTicket": "ٹکٹ بنائیں",
+    "createTicketDesc": "نئی سپورٹ درخواست یا شکایت جمع کرائیں",
+    "viewPayments": "ادائیگی دیکھیں",
+    "viewPaymentsDesc": "اپنے واجبات اور ادائیگی کی تاریخ چیک کریں",
+    "recentActivity": "حالیہ سرگرمی",
+    "unionOverview": "یونین کا جائزہ",
+    "activeMembers": "فعال ممبران",
+    "pendingTickets": "زیر التواء ٹکٹس",
+    "completedTickets": "مکمل ٹکٹس",
+    "totalPayments": "کل ادائیگی"
+  },
+  "tickets": {
+    "title": "سپورٹ ٹکٹس",
+    "create": "نیا ٹکٹ بنائیں",
+    "status": "صورتحال",
+    "priority": "اولویت",
+    "date": "تاریخ",
+    "subject": "موضوع",
+    "description": "تفصیل",
+    "category": "قسم",
+    "selectCategory": "قسم منتخب کریں",
+    "selectPriority": "اولویت منتخب کریں",
+    "submitTicket": "ٹکٹ جمع کرائیں",
+    "ticketSubmitted": "ٹکٹ کامیابی سے جمع ہو گیا!",
+    "categories": {
+      "general": "عمومی استفسار",
+      "complaint": "شکایت",
+      "suggestion": "تجویز",
+      "technical": "تکنیکی سپورٹ"
+    },
+    "priorities": {
+      "low": "کم",
+      "medium": "درمیانہ",
+      "high": "زیادہ",
+      "urgent": "فوری"
+    },
+    "statuses": {
+      "open": "کھلا",
+      "inProgress": "جاری",
+      "resolved": "حل شدہ",
+      "closed": "بند"
+    }
+  },
+  "payments": {
+    "title": "ادائیگی کا انتظام",
+    "duesOverview": "واجبات کا جائزہ",
+    "monthlyDues": "ماہانہ واجبات",
+    "specialFees": "خصوصی فیس",
+    "totalDue": "کل واجب",
+    "paymentHistory": "ادائیگی کی تاریخ",
+    "makePayment": "ادائیگی کریں",
+    "paymentMade": "ادائیگی کامیابی سے ہو گئی!",
+    "amount": "رقم",
+    "type": "قسم",
+    "date": "تاریخ",
+    "status": "صورتحال",
+    "paid": "ادا شدہ",
+    "pending": "زیر التواء",
+    "overdue": "مؤخر شدہ"
+  },
+  "announcements": {
+    "title": "یونین کے اعلانات",
+    "subtitle": "ہماری یونین کی جانب سے تازہ ترین خبروں اور اپ ڈیٹس سے باخبر رہیں"
+  },
+  "connect": {
+    "title": "یونین سے رابطہ",
+    "subtitle": "یونین کے نمائندوں اور ساتھی ممبران سے رابطہ کریں"
+  },
+  "profile": {
+    "title": "میری پروفائل",
+    "subtitle": "اپنے اکاؤنٹ کی ترتیبات اور ذاتی معلومات کا انتظام کریں"
+  },
+  "common": {
+    "loading": "لوڈ ہو رہا ہے...",
+    "error": "خرابی",
+    "success": "کامیابی",
+    "cancel": "منسوخ",
+    "save": "محفوظ کریں",
+    "edit": "ترمیم",
+    "delete": "حذف کریں",
+    "view": "دیکھیں",
+    "back": "واپس",
+    "next": "اگلا",
+    "previous": "پچھلا",
+    "search": "تلاش",
+    "filter": "فلٹر",
+    "sort": "ترتیب",
+    "all": "تمام",
+    "none": "کوئی نہیں",
+    "select": "منتخب کریں",
+    "language": "زبان"
+  }
+}

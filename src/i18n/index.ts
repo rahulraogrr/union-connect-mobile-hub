@@ -2,6 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
 import te from './locales/te.json';
+import ur from './locales/ur.json';
+import hi from './locales/hi.json';
 
 // Get initial language safely
 const getInitialLanguage = () => {
@@ -22,6 +24,12 @@ i18n
       },
       te: {
         translation: te
+      },
+      ur: {
+        translation: ur
+      },
+      hi: {
+        translation: hi
       }
     },
     lng: getInitialLanguage(),
