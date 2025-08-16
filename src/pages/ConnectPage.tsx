@@ -91,7 +91,7 @@ export default function ConnectPage({ onLogout }: ConnectPageProps) {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground z-10" size={16} />
           <FloatingInput 
             label="Search members and groups..."
-            className="pl-10"
+            className="pl-10 [&+label]:left-10"
           />
         </div>
 
