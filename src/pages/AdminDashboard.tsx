@@ -24,8 +24,13 @@ interface AdminDashboardProps {
 }
 
 export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
-  const { t } = useTranslation();
+  const { t, ready } = useTranslation();
   const { user, getHighestRole, hasAnyRole } = useUser();
+
+  // Don't render until translation is ready
+  if (!ready) {
+    return <div>Loading...</div>;
+  }
   
   const getRoleDisplayName = () => {
     const highestRole = getHighestRole();
